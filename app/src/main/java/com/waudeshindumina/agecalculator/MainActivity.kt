@@ -12,7 +12,7 @@ import android.widget.DatePicker
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.Locale
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.N)
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             val dayofMonth = calentar.get(Calendar.DAY_OF_MONTH)
 
 
-                DatePickerDialog(this,DatePickerDialog.OnDateSetListener {view,year,month,dayofMonth->
+               val today = DatePickerDialog(this,DatePickerDialog.OnDateSetListener {view,year,month,dayofMonth->
                    // Toast.makeText(this,"This is $year/${1+month}/$dayofMonth",Toast.LENGTH_SHORT).show()
                     val selectorDat = "$dayofMonth/${1+month}/$year"
                     inSelectedDayText.text = selectorDat
@@ -58,7 +58,9 @@ class MainActivity : AppCompatActivity() {
 
 
 
-                },year,month,dayofMonth).show()
+                },year,month,dayofMonth)
+            today.datePicker.setMaxDate(Date().time-86400000)
+            today.show()
 
 
 
