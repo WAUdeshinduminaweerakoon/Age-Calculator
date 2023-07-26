@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.N)
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         btnClickMe.setOnClickListener {view ->
 
             datePicker(view)
-            Toast.makeText(this, "Your click the button", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, "Your click the button", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -32,9 +33,13 @@ class MainActivity : AppCompatActivity() {
             var month = calentar.get(Calendar.MONTH)
             var dayofMonth = calentar.get(Calendar.DAY_OF_MONTH)
 
-                DatePickerDialog(this,DatePickerDialog.OnDateSetListener{view,year,month,dayofMonth->
-                    Toast.makeText(this,"This is $year/${1+month}/$dayofMonth",Toast.LENGTH_SHORT).show()
+
+                DatePickerDialog(this,DatePickerDialog.OnDateSetListener {view,year,month,dayofMonth->
+                   // Toast.makeText(this,"This is $year/${1+month}/$dayofMonth",Toast.LENGTH_SHORT).show()
+                    val selectorDat = "$dayofMonth/${1+month}/$year"
+                    inSelectedDayText.text = selectorDat
                 },year,month,dayofMonth).show()
+
 
 
 
