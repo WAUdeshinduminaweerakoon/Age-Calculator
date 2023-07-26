@@ -46,13 +46,13 @@ class MainActivity : AppCompatActivity() {
 
                     val seconds = date!!.time/1000
 
-                    val todateInSeconds = simpleDate.parse(selectorDat.format(System.currentTimeMillis()))!!.time/1000
-                    val totimeInSeconds = todateInSeconds-seconds
+                    val todateInSeconds = simpleDate.parse(simpleDate.format(System.currentTimeMillis()))!!.time/1000
+                    val trueTimeInSeconds = todateInSeconds-seconds
 
-                    inSecondsText.text = "$todateInSeconds s"
-                    inMinutesText.text = "${todateInSeconds/60} M"
-                    inHoursText.text = "${todateInSeconds/60/60} hrs"
-                    inDaysText.text = "${todateInSeconds/86400}day "
+                    inSecondsText.text = "$trueTimeInSeconds s"
+                    inMinutesText.text = "${trueTimeInSeconds/60} M"
+                    inHoursText.text = "${trueTimeInSeconds/60/60} hrs"
+                    inDaysText.text = "${trueTimeInSeconds/86400}day "
 
 
 
